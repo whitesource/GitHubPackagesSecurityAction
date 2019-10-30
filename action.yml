@@ -1,0 +1,38 @@
+name: 'GPR Security Scan'
+description: 'Scan packages and Docker images uploaded to GPR'
+author: 'WhiteSource'
+inputs:
+  gpr-token:
+    description: 'GitHub access token with read/write privileges to GPR'
+    required: true
+  ws-destination-url:
+      description: 'WS environment destination url'
+      required: true
+  ws-api-key:
+    description: 'WS organization api key'
+    required: true
+  ws-user-key:
+    description: 'WS user key'
+    required: true
+  ws-product-key:
+    description: 'WS product key to publish results to'
+    required: false
+  print-scan-report:
+    description: 'Whether to print the results report'
+    required: false
+    default: false
+  actions_step_debug:
+    description: 'Whether to print debug logs'
+    required: false
+    default: false
+outputs:
+  scan-report-file-path:
+    description: 'Path of the scan report file'
+  scan-report-folder-path:
+    description: 'Path of the folder of the scan report file'
+runs:
+  using: 'node12'
+  main: 'src/main.js'
+branding:
+  icon: 'shield'
+  color: 'purple'

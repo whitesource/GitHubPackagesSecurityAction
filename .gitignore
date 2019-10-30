@@ -1,0 +1,12 @@
+__tests__/runner/*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Output of 'npm pack'
+*.tgz
+
+*.iml
+.idea/
