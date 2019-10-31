@@ -137,4 +137,4 @@ The output is a report in json format, which includes information on vulnerabili
 
 # License
 
-The scripts and documentation in this project are released under the [APACHE 2.0](LICENSE) license.
+The scripts and documentation in this project are released under the [Apache 2.0](LICENSE) license.
