@@ -1,13 +1,13 @@
-# Whitesource GPR Security Action
+# Whitesource GP Security Action
 This action is designed to run as part of the workflow `registry_package` [triggered event](https://help.github.com/en/github/automating-your-workflow-with-github-actions/events-that-trigger-workflows).
 
-It scans the published/updated Docker image in GPR and reports back with found security vulnerabilities and license information.
+It scans the published/updated Docker image in GP and reports back with found security vulnerabilities and license information.
 
 # Usage
 See [action.yml](action.yml)
 
 ### Input Parameters
-**gpr-token**: GitHub personal access token with read/write privileges to GPR. This parameter must be a [repository secret](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables). Required parameter.
+**gp-token**: GitHub personal access token with read/write privileges to GP. This parameter must be a [repository secret](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables). Required parameter.
 
 **ws-destination-url**: WhiteSource environment destination url. Required parameter.
 
@@ -32,15 +32,15 @@ The recommended way to add this action to your workflow, is with a subsequent ac
 on: registry_package
 name: WORKFLOW_NAME
 jobs:
-  gprSecurityJob:
-    name: GPR Security Check Job
+  gpSecurityJob:
+    name: GP Security Check Job
     runs-on: ubuntu-latest
     steps:
-      - name: GPR Security Check Step
-        id: gpr-security-check
-        uses: whitesource/GprSecurityAction@19.10.2
+      - name: GP Security Check Step
+        id: gp-security-check
+        uses: whitesource/GpSecurityAction@19.10.2
         with:
-          gpr-token: ${{ secrets.GPR_ACCESS_TOKEN }}
+          gp-token: ${{ secrets.GP_ACCESS_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: security-scan-log
-          path: ${{ steps.gpr-security-check.outputs.scan-report-folder-path }}
+          path: ${{ steps.gp-security-check.outputs.scan-report-folder-path }}
 ```
 
 Another option is to print the scan report to the step's log, without uploading it as an artifact:
@@ -57,15 +57,15 @@ Another option is to print the scan report to the step's log, without uploading 
 on: registry_package
 name: WORKFLOW_NAME
 jobs:
-  gprSecurityJob:
-    name: GPR Security Check Job
+  gpSecurityJob:
+    name: GP Security Check Job
     runs-on: ubuntu-latest
     steps:
-      - name: GPR Security Check Step
-        id: gpr-security-check
-        uses: whitesource/GprSecurityAction@19.10.2
+      - name: GP Security Check Step
+        id: gp-security-check
+        uses: whitesource/GpSecurityAction@19.10.2
         with:
-          gpr-token: ${{ secrets.GPR_ACCESS_TOKEN }}
+          gp-token: ${{ secrets.GP_ACCESS_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}

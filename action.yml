@@ -1,9 +1,9 @@
-name: 'GPR Security Scan'
-description: 'Scan packages and Docker images uploaded to GPR'
+name: 'GP Security Scan'
+description: 'Scan packages and Docker images uploaded to GitHub Packages'
 author: 'WhiteSource'
 inputs:
-  gpr-token:
-    description: 'GitHub access token with read/write privileges to GPR'
+  gp-token:
+    description: 'GitHub access token with read/write privileges to GitHub Packages'
     required: true
   ws-destination-url:
       description: 'WS environment destination url'

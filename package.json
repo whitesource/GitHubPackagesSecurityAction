@@ -1,13 +1,14 @@
 {
-  "name": "ws-gpr-security-action",
+  "name": "ws-gp-security-action",
   "version": "19.10.1",
   "private": true,
-  "description": "WhiteSource GPR security scanning action",
+  "description": "WhiteSource GitHub Packages security scanning action",
   "main": "src/main.js",
   "keywords": [
     "actions",
     "github",
-    "gpr",
+    "gp",
+    "packages",
     "whitesource",
     "security"
   ],
