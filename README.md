@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: GP Security Check Step
         id: gp-security-check
-        uses: whitesource/GpSecurityAction@19.10.2
+        uses: whitesource/GitHubPackagesSecurityAction@19.10.2
         with:
           gp-token: ${{ secrets.GP_ACCESS_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
@@ -63,7 +63,7 @@ jobs:
     steps:
       - name: GP Security Check Step
         id: gp-security-check
-        uses: whitesource/GpSecurityAction@19.10.2
+        uses: whitesource/GitHubPackagesSecurityAction@19.10.2
         with:
           gp-token: ${{ secrets.GP_ACCESS_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
